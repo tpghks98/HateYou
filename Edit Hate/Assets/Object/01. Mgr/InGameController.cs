@@ -2,6 +2,7 @@
 using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.UI;
 public class InGameController : SingleTon<InGameController> {
 
     private BlockController m_pBlockCtrl = null;
@@ -164,6 +165,7 @@ public class InGameController : SingleTon<InGameController> {
             pAction = Acting(Target, ref posinfor, ACTIONID.MOVE);
             pAction.ActionSetup(Target, 0.5f, ref posinfor.pt, posinfor.vs);
             Target.OnAnimation("NoOut", 0.5f);
+            SoundMgr.Instance.CreateSound("NoOut");
             return pAction;
             IsWarpOff = false;
         }
@@ -181,6 +183,8 @@ public class InGameController : SingleTon<InGameController> {
             {
                 pAction = Acting(Target, ref posinfor, ACTIONID.MOVE);
             }
+            SoundMgr.Instance.CreateSound("Walk");
+
             IsWarpOff = true;
         }
         else
@@ -286,10 +290,17 @@ public class InGameController : SingleTon<InGameController> {
         {
             pAction = Acting(Target, ref posinfor, ACTIONID.MOVE, endAction);
         }
+
         pAction.m_pActionETC = endAction;
         pAction.LimitTime = 3.0f;
-        pAction.ActionSetup(Target, 1.0f, ref posinfor.pt, posinfor.vs);
-        Target.OnAnimation("Push", 1.0f);
+
+        float ftime = 1.0f;
+        if( StageMgr.Instance.GetPlayType() == PLAYTYPE.MONO )
+        {
+            ftime = 0.75f;
+        }
+        pAction.ActionSetup(Target, ftime, ref posinfor.pt, posinfor.vs);
+        Target.OnAnimation("Push", ftime);
 
 
         return pAction;
@@ -302,13 +313,30 @@ public class InGameController : SingleTon<InGameController> {
         {
             case ACTIONID.MOVE:
                 pAction = new MoveAction();
-                pAction.ActionSetup(Target, 0.4f, ref posinfor.pt, posinfor.vs);
-                Target.OnAnimation("Walk", 0.4f); 
+                float fTime = 0.4f;
+                if (StageMgr.Instance.GetPlayType() == PLAYTYPE.MONO)
+                {
+                    Target.OnAnimation("Walk", 0.3f);
+                    fTime = 0.25f;
+                }
+                else
+                {
+                    Target.OnAnimation("Walk", 0.4f);
+                }
+                pAction.ActionSetup(Target, fTime, ref posinfor.pt, posinfor.vs);
+
                 break;
             case ACTIONID.TRANSMOVE:
                 pAction = new TransMoveAction();
                 pAction.ActionSetup(Target, 0.5f, ref posinfor.pt, posinfor.vs);
-                Target.OnAnimation("Walk", 0.5f);
+                if (StageMgr.Instance.GetPlayType() == PLAYTYPE.MONO)
+                {
+                    Target.OnAnimation("Walk", 0.55f);
+                }
+                else
+                {
+                    Target.OnAnimation("Walk", 0.5f);
+                }
                 break;
             case ACTIONID.BLOCK:
                 pAction = new BlockedAction();
@@ -453,7 +481,7 @@ public class InGameController : SingleTon<InGameController> {
         m_pPlayer.OnIdleState();
         m_pPlayer.Action = null;
         m_pPlayer.Ability = null;
-        m_pPlayer.gameObject.transform.localScale = Vector3.one;
+        m_pPlayer.OnAnimation("Idle");
         m_pPlayer.ResetUndo();
     }
 
@@ -471,6 +499,8 @@ public class InGameController : SingleTon<InGameController> {
         {
             m_pExplainObject.Initialize();
         }
+
+        GameObject.Find("Stage_Text").GetComponent<Text>().text = "Stage - " + StageMgr.Instance.SellectStage;
     }
     private void PlayerSetting( ref string str, ref int nCount)
     {
@@ -525,7 +555,17 @@ public class InGameController : SingleTon<InGameController> {
             }
             if( StageMgr.Instance.GetPlayType() == PLAYTYPE.MONO )
             {
-                mtl.color = new Color(0.9f, 0.9f, 0.9f);
+                mtl.color = new Color(0.42f, 0.42f, 0.42f);
+
+                var mtlWhite =  m_pBlockCtrl.MaterialWhite;
+                mtlWhite.color = new Color(1, 1, 1);
+                m_pBlockCtrl.MaterialWhite = mtlWhite;
+            }
+            else
+            {
+                var mtlWhite = m_pBlockCtrl.MaterialWhite;
+                mtlWhite.color = new Color(1, 1, 1) * 0.42f;
+                m_pBlockCtrl.MaterialWhite = mtlWhite;
             }
             m_pBlockCtrl.MaterialBlack = mtl;
         }

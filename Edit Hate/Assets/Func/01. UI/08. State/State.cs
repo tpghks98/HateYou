@@ -15,13 +15,31 @@ public class State : MonoBehaviour {
     public GameObject[] m_goStar;
     public GameObject m_goClose;
     public MessageBox m_pMsgBox;
+
+    private float[] m_fTime = new float[3];
+
 	// Use this for initialization
 	void Start () {
-	
+        for( int n =0; n < m_fTime.Length; ++n )
+        {
+            m_fTime[n] = -1.0f;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        for (int n = 0; n < m_fTime.Length; ++n)
+        {
+            if( m_fTime[n] > 0.0f )
+            {
+                m_fTime[n] -= Time.fixedDeltaTime;
+                if( m_fTime[n] <= 0.0f )
+                {
+                    m_fTime[n] = -1.0f;
+                    OnStarSound();
+                }
+            }
+        }
         if( m_IsOn )
         {
             m_fScaleTime += Time.fixedDeltaTime * m_fSpeed;
@@ -150,13 +168,18 @@ public class State : MonoBehaviour {
             Alpha.m_fDelayTime = 0.1f; 
         }
     }
+
+    public void OnStarSound()
+    {
+        SoundMgr.Instance.CreateSound("Star");
+        Debug.Log("Y");
+    }
     private void StarEnable( int nNum, bool IsDirectional = true )
     {
         for (int n = 0; n < m_goStar.Length; ++n )
         {
             m_goStar[n].SetActive(false);
         }
-
         for (int n = 2; n >= ( 3 - nNum); --n)
         {
             if (m_goStar.Length < n)
@@ -171,17 +194,23 @@ public class State : MonoBehaviour {
                     m_goStar[n].gameObject.AddComponent<Scaling>();
                 Scaling.m_vStartScale = new Vector3(6, 6, 6);
                 Scaling.m_vEndScale = Vector3.one;
-                Scaling.m_fMaxTime = 1.0f;
+                Scaling.m_fMaxTime = 0.75f;
                 Scaling.m_IsFixedTime = true;
-                Scaling.m_fDelayTime = n * 0.65f;
+                Scaling.m_fDelayTime = n * 0.55f;
 
                 var Alpha =
                     m_goStar[n].gameObject.AddComponent<Alpha>();
-                Alpha.m_fMaxTime = 1.0f;
+                Alpha.m_fMaxTime = 0.75f;
                 Alpha.m_fEndAlpha = 1.0f;
                 Alpha.m_fStartAlpha = 0.0f;
                 Alpha.m_IsFixedTime = true;
-                Alpha.m_fDelayTime = 0.05f + n * 0.65f;
+                Alpha.m_fDelayTime = 0.05f + n * 0.55f;
+                
+                if (m_fTime[n] == -1.0f)
+                {
+                    m_fTime[n] = Alpha.m_fDelayTime + 0.55f;
+                }
+
             }
         }
     }

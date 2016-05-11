@@ -26,3 +26,17 @@ C:\Users\mepeed\Desktop\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Unity.Ceci
 C:\Users\mepeed\Desktop\새 폴더 (2)\Unity\Edit Hate\obj\Debug\Assembly-CSharp.dll
 C:\Users\mepeed\Desktop\새 폴더 (2)\Unity\Edit Hate\obj\Debug\Assembly-CSharp.pdb
 C:\Users\mepeed\Desktop\새 폴더 (2)\Unity\Edit Hate\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Assembly-CSharp.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Assembly-CSharp.pdb
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\UnityEditor.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcode.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\UnityEngine.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\UnityEngine.UI.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Mono.Cecil.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Unity.SerializationLogic.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Unity.DataContract.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\Temp\bin\Debug\Unity.CecilTools.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\obj\Debug\Assembly-CSharp.dll
+D:\Download Data\프로젝트모음\새 폴더 (2)\Unity\Edit Hate\obj\Debug\Assembly-CSharp.pdb

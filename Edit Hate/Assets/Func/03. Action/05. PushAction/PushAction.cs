@@ -8,6 +8,7 @@ public class PushAction : BaseAction {
     protected override void Setup()
     {
         m_vStartPosition = m_pTarget.transform.position;
+
     }
 
     protected override void ActionUpdate()

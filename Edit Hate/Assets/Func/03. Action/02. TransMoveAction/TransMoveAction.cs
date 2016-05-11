@@ -143,7 +143,13 @@ public class TransMoveAction : BaseAction {
 
     private void ItemScaling()
     {
-        if ((m_fTime / m_fMaxTime) > 0.3f)
+        float fTime = 0.3f;
+        if (StageMgr.Instance.GetPlayType() == PLAYTYPE.COLOR)
+        {
+            fTime = 0.6f;
+        }
+
+        if ((m_fTime / m_fMaxTime) > fTime)
         {
             ST_POS_INFOR ps;
             ps.pt = m_stArrivePoint;

@@ -17,6 +17,7 @@ public class BlockController : ObjBase {
     public Material MaterialWhite
     {
         get { return m_mtlWhite; }
+        set { m_mtlWhite = value; }
     }
     public Material MaterialBlack
     {

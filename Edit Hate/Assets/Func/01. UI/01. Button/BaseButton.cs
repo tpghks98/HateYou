@@ -10,7 +10,7 @@ public class BaseButton : MonoBehaviour {
         {
             ExpandEff pEff
             = SceneMgr.Instance.ChangeSceneEff<ExpandEff>() as ExpandEff;
-            pEff.Setup(goTarget, GameObject.Find("ButtonParent"), 5.0f
+            pEff.Setup(goTarget, GameObject.Find("ButtonParent"), 2.5f
                 , GetComponent<Image>());
         }
         
@@ -23,7 +23,7 @@ public class BaseButton : MonoBehaviour {
         {
             ReduceEff pEff
                 = SceneMgr.Instance.ChangeSceneEff<ReduceEff>() as ReduceEff;
-            pEff.Setup(goTarget, 3.5f, GetComponent<Image>());
+            pEff.Setup(goTarget, 2.5f, GetComponent<Image>());
         }
     }
 

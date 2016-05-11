@@ -12,5 +12,6 @@ public class ChoiceScene : BaseScene {
     public override void Initialize()
     {
         StageMgr.Instance.LockSetting();
+        StageMgr.Instance.ColorSetup();
     }
 }

@@ -10,5 +10,7 @@ public class SettingScene : BaseScene {
     public override void Initialize()
     {
         StageMgr.Instance.SoundSetup();
+        StageMgr.Instance.ColorSetup();
+        
     }
 }

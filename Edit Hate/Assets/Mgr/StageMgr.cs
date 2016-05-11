@@ -8,7 +8,7 @@ public class StageMgr : SingleTon<StageMgr> {
     private int m_nSellectStage = 1;
     private int m_nSellectPlanet = 1;
 
-    private PLAYTYPE m_ptID = PLAYTYPE.MONO;
+    private PLAYTYPE m_ptID = PLAYTYPE.COLOR;
 
     private bool m_IsGameSound = true;
     private bool m_IsSongSound = true;
@@ -109,6 +109,8 @@ public class StageMgr : SingleTon<StageMgr> {
     {
         m_nClearStage = PlayerPrefs.GetInt( "ClearStage" );
         m_nOpenChapter = PlayerPrefs.GetInt("OpenChapter" );
+        m_nClearStage = 125;
+        m_nOpenChapter = 5;
         if( m_nClearStage < 0)
         {
             m_nClearStage = 0;
@@ -117,8 +119,6 @@ public class StageMgr : SingleTon<StageMgr> {
         {
             m_nOpenChapter = 1;
         }
-        m_nClearStage = 125;
-        m_nOpenChapter = 6;
     }
 
     public void SoundSetup()
@@ -133,7 +133,11 @@ public class StageMgr : SingleTon<StageMgr> {
             GameObject.Find("Song_Button").GetComponent<EnableButton>()
                .OnClickButton();
         }
-        if( m_ptID == PLAYTYPE.COLOR )
+    }
+
+    public void ColorSetup()
+    {
+        if (m_ptID == PLAYTYPE.COLOR)
         {
             GameObject.Find("PlayType_Button").GetComponent<EnableButton>()
                .OnClickButton();

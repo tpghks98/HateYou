@@ -17,6 +17,8 @@ public class BlockedAction : BaseAction {
 
                 
                 InGameController.Instance.GetBlockCtrl().GetItem(ref posinfor).Shaking();
+                SoundMgr.Instance.CreateSound("Kick");
+
                 var temp = m_pTarget.PrevInfo;
                 var pItem = InGameController.Instance.GetBlockCtrl().GetItem(ref temp);
 
@@ -56,8 +58,10 @@ public class BlockedAction : BaseAction {
 
                 InGameController.Instance.GetBlockCtrl()
                     .DestroyItem(ref posinfor);
-
-
+            }
+            else if( pItem.ID == ITEMID.WALL)
+            {
+                m_pTarget.SetUndoItemData(ref posinfor, ITEMID.WALL, 1, 0);
             }
         }
         posinfor.pt = m_stArrivePoint;

@@ -26,7 +26,7 @@ public class ExpandEff : BaseSceneEff {
         m_fExpandValue = fValue;
         
         GameObject.Find("Star_Parent")
-            .GetComponent<Star_Parent>().OnScaling(0.25f);
+            .GetComponent<Star_Parent>().OnScaling(0.5f);
         SceneMgr.Instance.StartScale = 0.0f;
 
         GameObject go = goTarget.transform.parent.gameObject;
@@ -46,7 +46,7 @@ public class ExpandEff : BaseSceneEff {
 
     public override void UpdateEff(float fTime)
     {
-        SceneMgr.Instance.AlphaColor = SceneMgr.Instance.AlphaColor - 2.0f * Time.deltaTime;
+        SceneMgr.Instance.AlphaColor = 1.05f - fTime ;
 
         m_goObjectParent.transform.localScale
             = Vector3.Lerp( m_vStartScale, m_vEndScale,EasingUtil.easeOutBack(0, 1, fTime));
@@ -69,7 +69,7 @@ public class ExpandEff : BaseSceneEff {
 
         var Trans = (v - m_goObjectParent.transform.localPosition) * m_fExpandValue
              * Time.deltaTime
-              * EasingUtil.easeOutBack(0, 1, fTime);
+              * EasingUtil.easeOutBack(0, 1, fTime) * 2;
         m_goObjectParent.transform.Translate(Trans );
 
     }

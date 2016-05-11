@@ -16,6 +16,9 @@ public class MessageBox : MonoBehaviour {
     public State m_pState;
     public STATEID m_nStateID = STATEID.GREAT;
 
+    private float m_fWordTime = 0.0f;
+    private string m_ViewString = "";
+
     
 
     public void TextLoad( STATEID ID)
@@ -135,6 +138,15 @@ public class MessageBox : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        m_fWordTime += Time.fixedDeltaTime;
+        if (m_pTopText.text.Length < m_ViewString.Length)
+        {
+            if( m_fWordTime > 0.05f )
+            {
+                m_pTopText.text += m_ViewString[m_pTopText.text.Length];
+                m_fWordTime = 0.0f;
+            }
+        }
 	}
 
     public void NextWord()
@@ -166,7 +178,8 @@ public class MessageBox : MonoBehaviour {
 
         if( m_lstString.Count > 0 )
         {
-            m_pTopText.text = m_lstString[0]; 
+            m_ViewString = m_lstString[0];
+            m_pTopText.text = "";
         }
         else
         {

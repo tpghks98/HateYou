@@ -86,8 +86,6 @@ public abstract class Character : ObjBase {
         m_stUndoData.stItemData = null;
         m_stUndoData.pPrevAbility = null;
 
-
-
     }
 
     public bool GetCanUndo()
@@ -105,6 +103,7 @@ public abstract class Character : ObjBase {
         {
             if (m_stUndoData.IsCanUse)
             {
+                InGameController.Instance.IsOnWarp = false;
                 m_stUndoData.IsCanUse = false;
 
                 if( m_stUndoData.stItemData != null )
@@ -119,13 +118,19 @@ public abstract class Character : ObjBase {
                             case ITEMID.COIN:
                                 m_stUndoData.IsColorChange = true;
                                 break;
+                            case ITEMID.WALL:
+                                m_stUndoData.IsColorChange = true;
+                                break;
 
                         }
-                        InGameController.Instance.GetBlockCtrl().CreateItem(
-                            (int)m_stUndoData.stItemData[n].stPosInfo.vs,
-                            m_stUndoData.stItemData[n].stPosInfo.pt.y,
-                            m_stUndoData.stItemData[n].stPosInfo.pt.x,
-                            m_stUndoData.stItemData[n].nID);
+                        if (m_stUndoData.stItemData[n].nID != ITEMID.WALL)
+                        {
+                            InGameController.Instance.GetBlockCtrl().CreateItem(
+                                (int)m_stUndoData.stItemData[n].stPosInfo.vs,
+                                m_stUndoData.stItemData[n].stPosInfo.pt.y,
+                                m_stUndoData.stItemData[n].stPosInfo.pt.x,
+                                m_stUndoData.stItemData[n].nID);
+                        }
                     }
                     m_stUndoData.stItemData = null;
                 }
@@ -136,6 +141,8 @@ public abstract class Character : ObjBase {
                     ps.pt = m_vPosition;
                     ps.vs = m_vsView;
                     InGameController.Instance.GetBlockCtrl().OnBlock(ref ps);
+                    Debug.Log(ps.pt.x);
+                    Debug.Log(ps.pt.y);
                 }
 
                 var pItem =
@@ -171,8 +178,11 @@ public abstract class Character : ObjBase {
         }
     }
 
+ 
     public virtual void OnAnimation( string strName, float fTime = 0.0f )
     {
+
+        transform.localScale = Vector3.one;
         if( m_pAnimation == null )
         {
             m_pAnimation = GetComponent<Animation>();
@@ -185,29 +195,38 @@ public abstract class Character : ObjBase {
         {
             if (StageMgr.Instance.GetPlayType() == PLAYTYPE.MONO)
             {
-                if( strName == "Idle" ||
-                    strName == "Jump_Idle" ||
-                    strName == "Warp_Idle" )
-                {
-                    return;
-                }
                 transform.localScale = Vector3.one;
+
 
                 if( strName == "Push" )
                 {
                     strName = "Box_Null";
-                    transform.localScale = Vector3.one * 2.54f;
-
+                    transform.localScale = Vector3.one * 0.39f;
                 }
                 else if( strName == "Kick")
                 {
                     strName = "Box_Wall";
-                    transform.localScale = Vector3.one * 2.54f;
+                    transform.localScale = Vector3.one * 0.39f;
                 }
 
-                else{
-                      strName = "Box_Jump";
+                else if( strName == "Jump" )
+                {
+                    strName = "Box_Jump";
+                    transform.localScale = Vector3.one * 0.39f;
                 }
+                else if (strName == "Idle" ||
+                        strName == "Jump_Idle" ||
+                        strName == "Warp_Idle")
+                {
+                    strName = "Box_None";
+                } 
+                else
+                {
+                    strName = "Box_Turn";
+                }
+
+
+
             }
  
             if (fTime != 0.0f)
@@ -215,6 +234,7 @@ public abstract class Character : ObjBase {
                 var v = m_pAnimation[strName];
                 v.speed = v.length / (fTime - 0.05f);
             }
+
             m_pAnimation.Play(strName);
         }
     }
@@ -347,8 +367,6 @@ public abstract class Character : ObjBase {
             if( m_pAbility.GetType()  == typeof( JumpAbility ) )
             {
                 nJump = 2;
-                m_stUndoData.pPrevAbility = m_pAbility;
-                m_pAbility = null;
             }
         }
         posinfor.pt = m_vPosition;
@@ -374,6 +392,19 @@ public abstract class Character : ObjBase {
                 ActionStart();
                 IsMove = true;
                 MoveCountUp();
+                if( nJump == 2 )
+                {
+                    if (m_pAbility.GetType() == typeof(NullAbility) )
+                    {
+                        m_stUndoData.pPrevAbility = new JumpAbility();
+                        m_stUndoData.pPrevAbility.Setup(this);
+                    }
+                    else
+                    {
+                        m_stUndoData.pPrevAbility = m_pAbility;
+                        m_pAbility = null;
+                    }
+                }
             }
         }
 
@@ -390,6 +421,11 @@ public abstract class Character : ObjBase {
                 if (IsTrans)
                 {
                     fAniTime = 1.0f;
+                }
+
+                if( StageMgr.Instance.GetPlayType() == PLAYTYPE.MONO )
+                {
+                    fAniTime -= 0.35f;
                 }
                 bool IsJumpAni = true;
                 if (m_pAbility != null)

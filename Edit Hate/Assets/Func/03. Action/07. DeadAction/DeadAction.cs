@@ -8,6 +8,8 @@ public class DeadAction : BaseAction {
     protected override void Setup()
     {
         m_vStartPosition = m_pTarget.transform.position;
+        SoundMgr.Instance.CreateSound("Dead");
+
     }
 
     override protected void ActionUpdate()

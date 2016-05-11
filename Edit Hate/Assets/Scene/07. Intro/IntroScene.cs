@@ -10,5 +10,6 @@ public class IntroScene : BaseScene {
 
     public override void Initialize()
     {
+        SoundMgr.Instance.CreateBackGroundSound("BGM");
     }
 }

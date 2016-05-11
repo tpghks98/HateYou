@@ -4,7 +4,7 @@ using System.Collections;
 public class MoveAction : BaseAction{
 
     private Vector3 m_vStartPosition;
-
+    private bool m_IsSound = false;
 
     protected override void Setup()
     {
@@ -34,6 +34,7 @@ public class MoveAction : BaseAction{
                 ItemScaling();
                 break;
         }
+
     }
 
     protected override void ActionEnd()
@@ -75,10 +76,16 @@ public class MoveAction : BaseAction{
         float fTime = 0.24f;
         if( StageMgr.Instance.GetPlayType() == PLAYTYPE.COLOR )
         {
-            fTime = 0.4f;
+            fTime = 0.6f;
         }
         if ((m_fTime / m_fMaxTime) > fTime)
         {
+            if (!m_IsSound)
+            {
+                m_IsSound = true;
+                SoundMgr.Instance.CreateSound("Push");
+            }
+
             ST_POS_INFOR ps;
             ps.pt = m_stArrivePoint;
             ps.vs = m_vsArriveView;

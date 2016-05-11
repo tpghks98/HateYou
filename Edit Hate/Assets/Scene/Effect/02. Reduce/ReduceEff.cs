@@ -25,11 +25,11 @@ public class ReduceEff : BaseSceneEff {
 
     public override void UpdateEff(float fTime)
     {
-        SceneMgr.Instance.AlphaColor = SceneMgr.Instance.AlphaColor - 2.0f * Time.deltaTime;
+        SceneMgr.Instance.AlphaColor = 1.1f - fTime;
 
         m_goTarget.transform.localScale =
             m_goTarget.transform.localScale - Vector3.one * m_fReduceValue
-            * EasingUtil.easeOutBack(0, 1, fTime) * Time.deltaTime;
+            * EasingUtil.easeOutBack(0, 1, fTime) * Time.deltaTime * 2;
         if( m_goTarget.transform.localScale.x < 0.0f )
         {
             m_goTarget.transform.localScale = Vector3.zero;

@@ -4,7 +4,7 @@ using System.Collections;
 
 public enum SCENEID
 {
-    INGAME, HOME, CHOICE, PLANET, SETTING, INTRO
+    INGAME, HOME, CHOICE, PLANET, SETTING, INTRO, CREDIT
 };
 
 public class SceneMgr : SingleTon<SceneMgr> {
@@ -73,7 +73,7 @@ public class SceneMgr : SingleTon<SceneMgr> {
     {
         m_pSceneEff = null;
         m_IsInit = true;
-        m_fMaxTime = 0.5f;
+        m_fMaxTime = 1.0f;
         m_fCurrTime = m_fMaxTime;
         m_IsSceneChange = false;
         ChangeScene(SCENEID.INTRO);
@@ -93,7 +93,7 @@ public class SceneMgr : SingleTon<SceneMgr> {
         }
         if (m_IsSceneChange)
         {
-            m_fCurrTime += Time.deltaTime;
+            m_fCurrTime += Time.deltaTime * 6.0f;
             if (m_fCurrTime > m_fMaxTime)
             {
                 m_fCurrTime = m_fMaxTime;
@@ -111,6 +111,7 @@ public class SceneMgr : SingleTon<SceneMgr> {
 
     private void LoadScene()
     {
+        SoundMgr.Instance.GameSoundDestory();
         switch (m_nSceneID)
         {
             case SCENEID.INGAME:
@@ -130,6 +131,9 @@ public class SceneMgr : SingleTon<SceneMgr> {
                 break;
             case SCENEID.INTRO:
                 ChangeScene<IntroScene>();
+                break;
+            case SCENEID.CREDIT:
+                ChangeScene<CreditScene>();
                 break;
         }
     }
