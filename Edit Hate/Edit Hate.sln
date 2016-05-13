@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 
 Project("{D7822BAC-652D-B871-6212-ACD3B692FA1B}") = "Edit Hate", "Assembly-CSharp.csproj", "{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}"
 EndProject
+Project("{D7822BAC-652D-B871-6212-ACD3B692FA1B}") = "Edit Hate", "Assembly-CSharp-Editor.csproj", "{13824B2A-5B57-C23B-1050-74322A556F23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13824B2A-5B57-C23B-1050-74322A556F23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13824B2A-5B57-C23B-1050-74322A556F23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13824B2A-5B57-C23B-1050-74322A556F23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13824B2A-5B57-C23B-1050-74322A556F23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,5 +42,4 @@ Global
 		$3.inheritsScope = text/plain
 		$3.scope = text/plain
 	EndGlobalSection
-
 EndGlobal

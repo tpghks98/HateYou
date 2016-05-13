@@ -455,11 +455,13 @@ public class InGameController : SingleTon<InGameController> {
         m_pBlockCtrl.BlockSetting(ref str, ref nCount);
 
         s.Close();
+
+		AdManager.ShowInterstitialAds();
     }
 
     public void NotSceneChLoadStage( )
     {
-
+		
         string strFileName = "Data/ST_" + StageMgr.Instance.SellectStage;
 
         TextAsset data
@@ -483,6 +485,8 @@ public class InGameController : SingleTon<InGameController> {
         m_pPlayer.Ability = null;
         m_pPlayer.OnAnimation("Idle");
         m_pPlayer.ResetUndo();
+
+		AdManager.ShowInterstitialAds();
     }
 
     private void ExplainLoad()

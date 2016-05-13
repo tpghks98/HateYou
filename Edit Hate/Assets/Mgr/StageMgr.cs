@@ -39,7 +39,11 @@ public class StageMgr : SingleTon<StageMgr> {
     public int SellectChapter
     {
         get { return m_nSellectChapter; }
-        set { if (value != m_nSellectChapter) { m_nSellectPlanet = 1; } m_nSellectChapter = value; }
+        set
+        {
+            if (value != m_nSellectChapter) { m_nSellectPlanet = 1; } m_nSellectChapter = value;
+            if (m_nSellectChapter > 5) m_nSellectChapter = 5;
+        }
     }
     public int ClearStgae
     {
@@ -50,7 +54,11 @@ public class StageMgr : SingleTon<StageMgr> {
     public int SellectStage
     {
         get { return m_nSellectStage; }
-        set { m_nSellectStage = value; }
+        set
+        {
+            m_nSellectStage = value;
+            if (StageMgr.Instance.SellectStage > 125) StageMgr.Instance.SellectStage = 125;
+        }
     }
     public int SellectPlanet
     {

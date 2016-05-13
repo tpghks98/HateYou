@@ -145,7 +145,7 @@ public class Explain : MonoBehaviour {
 
 
         m_pMouse.gameObject.transform.localPosition = Vector2.Lerp(m_pMoveData[m_nCurrSize].m_vStart, m_pMoveData[m_nCurrSize].m_vEnd, EasingUtil.easeInOutBack(0.0f, 1.0f, m_fTime) );
-        Debug.Log(m_pMouse.gameObject.transform.localPosition);
+//        Debug.Log(m_pMouse.gameObject.transform.localPosition);
         if (m_nMaxSize > 1)
         {
             m_pImgNum.sprite = m_pSpriteNum[m_nCurrSize];

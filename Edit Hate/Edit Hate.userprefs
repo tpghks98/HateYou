@@ -1,9 +1,9 @@
-﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Object\01. Mgr\ObjectMgr.cs">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Object/01. Mgr/InGameController.cs">
     <Files>
-      <File FileName="Assets\Scene\02. InGame\InGameScene.cs" Line="1" Column="1" />
-      <File FileName="Assets\Object\01. Mgr\ObjectMgr.cs" Line="16" Column="32" />
+      <File FileName="Assets/AdManager.cs" Line="33" Column="3" />
+      <File FileName="Assets/Object/01. Mgr/InGameController.cs" Line="476" Column="23" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
