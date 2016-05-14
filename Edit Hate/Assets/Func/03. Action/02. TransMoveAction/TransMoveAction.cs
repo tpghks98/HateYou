@@ -118,7 +118,7 @@ public class TransMoveAction : BaseAction {
             switch (Item.ID)
             {
                 case ITEMID.COIN:
-                    IsNull = true;
+            //        IsNull = true;
                     break;
                 case ITEMID.WARP:
                     IsNull = true;
