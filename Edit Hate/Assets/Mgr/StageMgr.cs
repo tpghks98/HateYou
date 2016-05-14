@@ -117,8 +117,7 @@ public class StageMgr : SingleTon<StageMgr> {
     {
         m_nClearStage = PlayerPrefs.GetInt( "ClearStage" );
         m_nOpenChapter = PlayerPrefs.GetInt("OpenChapter" );
-        m_nClearStage = 125;
-        m_nOpenChapter = 5;
+
         if( m_nClearStage < 0)
         {
             m_nClearStage = 0;
