@@ -183,7 +183,7 @@
  <HintPath>D:/Unity 5.3.4/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/mepeed/Downloads/Edit Hate/Assets/Plugins/LitJson.dll</HintPath>
+ <HintPath>C:/Users/mepeed/Downloads/새 폴더/HateYou/Edit Hate/Assets/Plugins/LitJson.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

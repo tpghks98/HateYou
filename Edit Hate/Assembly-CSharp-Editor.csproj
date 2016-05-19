@@ -107,10 +107,10 @@
  <HintPath>D:/Unity 5.3.4/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="JarResolverLib">
- <HintPath>C:/Users/mepeed/Downloads/Edit Hate/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ <HintPath>C:/Users/mepeed/Downloads/새 폴더/HateYou/Edit Hate/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/mepeed/Downloads/Edit Hate/Assets/Plugins/LitJson.dll</HintPath>
+ <HintPath>C:/Users/mepeed/Downloads/새 폴더/HateYou/Edit Hate/Assets/Plugins/LitJson.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>D:/Unity 5.3.4/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
