@@ -1,10 +1,48 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Object/01. Mgr/InGameController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\AdsPopup.cs">
     <Files>
-      <File FileName="Assets/AdManager.cs" Line="33" Column="3" />
-      <File FileName="Assets/Object/01. Mgr/InGameController.cs" Line="476" Column="23" />
+      <File FileName="Assets\AdsPopup.cs" Line="44" Column="4" />
+      <File FileName="Assets\AdManager.cs" Line="19" Column="24" />
+      <File FileName="Assets\Object\01. Mgr\InGameController.cs" Line="168" Column="32" />
+      <File FileName="Assets\Mgr\StageMgr.cs" Line="127" Column="5" />
+      <File FileName="Assets\Mgr\DataMgr.cs" Line="1" Column="1" />
+      <File FileName="Assets\Value\Template\SingleTon.cs" Line="19" Column="25" />
+      <File FileName="Assets\Scene\02. InGame\InGameScene.cs" Line="13" Column="45" />
+      <File FileName="Assets\Scene\01. Mgr\SceneMgr.cs" Line="91" Column="24" />
+      <File FileName="Assets\Scene\BaseScene.cs" Line="16" Column="5" />
+      <File FileName="Assets\Scene\04. Home\HomeScene.cs" Line="14" Column="17" />
+      <File FileName="Assets\Object\01. Mgr\SoundMgr.cs" Line="18" Column="37" />
+      <File FileName="Assets\Object\CustomSound.cs" Line="1" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Edit Hate" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Mgr" expanded="True" />
+              <Node name="Object" expanded="True">
+                <Node name="01. Mgr" expanded="True" />
+              </Node>
+              <Node name="Scene" expanded="True">
+                <Node name="01. Mgr" expanded="True" />
+                <Node name="02. InGame" expanded="True" />
+                <Node name="04. Home" expanded="True" />
+              </Node>
+              <Node name="Value" expanded="True">
+                <Node name="Template" expanded="True" />
+              </Node>
+              <Node name="AdsPopup.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State name="__root__">
+          <Node name="Edit Hate" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

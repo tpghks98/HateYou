@@ -7,6 +7,7 @@ public class StageMgr : SingleTon<StageMgr> {
     private int m_nClearStage = 0;
     private int m_nSellectStage = 1;
     private int m_nSellectPlanet = 1;
+	private bool m_IsPayAds = false;
 
     private PLAYTYPE m_ptID = PLAYTYPE.COLOR;
 
@@ -16,6 +17,10 @@ public class StageMgr : SingleTon<StageMgr> {
     {
         get { return m_IsGameSound; }
     }
+
+	public bool GetIsPay() {
+		return m_IsPayAds;
+	}
 
     public PLAYTYPE GetPlayType() {  return m_ptID;}
     public void SetPlayType(PLAYTYPE ptID) { m_ptID = ptID; }
@@ -66,8 +71,14 @@ public class StageMgr : SingleTon<StageMgr> {
         set { m_nSellectPlanet = value; }
     }
 
+
+	public void Start()
+	{
+		Initialize ();
+	}
     public override void Initialize()
     {
+		Debug.Log ("Y");
         if( GameObject.Find( gameObject.name ) !=
             gameObject )
         {
@@ -118,6 +129,12 @@ public class StageMgr : SingleTon<StageMgr> {
         m_nClearStage = PlayerPrefs.GetInt( "ClearStage" );
         m_nOpenChapter = PlayerPrefs.GetInt("OpenChapter" );
 
+
+		const int nPayValue = 101011;
+		if (PlayerPrefs.GetInt ("IsPay") == nPayValue) {
+			m_IsPayAds = true;
+		}
+
         if( m_nClearStage < 0)
         {
             m_nClearStage = 0;
@@ -127,6 +144,12 @@ public class StageMgr : SingleTon<StageMgr> {
             m_nOpenChapter = 1;
         }
     }
+	public void SaveIsPayData()
+	{
+		const int nPayValue = 101011;
+		PlayerPrefs.SetInt ("IsPay", nPayValue);
+		m_IsPayAds = true;
+	}
 
     public void SoundSetup()
     {

@@ -17,6 +17,7 @@ public abstract class SingleTon<T> : MonoBehaviour where T : MonoBehaviour {
                     GameObject go = new GameObject();
                     go.name = typeof(T).ToString();
                     m_pInstance = go.AddComponent<T>();
+
                 }
             }
             return m_pInstance;
