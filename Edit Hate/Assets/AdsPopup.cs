@@ -31,6 +31,9 @@ public class AdsPopup : MonoBehaviour {
 	{
         // 결제가 완료되면 OnReslut( true ) 호출해주시면 되요
         // 실패시 OnResult( false ) 호출 해주세요.
+		GameObject.Find("IAP").GetComponent<InAppPurchase>().BuyConsumable(res=>{
+			OnResult(res);
+		});
 	}
 
 

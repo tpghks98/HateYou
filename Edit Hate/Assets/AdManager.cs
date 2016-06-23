@@ -6,6 +6,10 @@ public class AdManager{
 	static int counter = 0;
 	static System.Action<bool> onEndAction;
 	public static void ShowInterstitialAds(){
+		if(StageMgr.Instance.GetIsPay () == true){
+			return;
+		}
+
 		if(counter < 3){
 			counter++;
 			return;
