@@ -10,13 +10,24 @@ public class AdsPopup : MonoBehaviour {
 		CheckPopupDeleted ();
 	}
 
-
-	public void OnPopup()
+	System.Action delegateAction;
+	public void OnAdBuyPopup()
 	{
 		gameObject.SetActive (true);
 
 		m_goRseult.SetActive (false);
 		m_goPop.SetActive (true);
+		m_goPop.transform.FindChild("Text").GetComponent<Text>().text = "0.99$로 광고를 제거하실수 있습니다.\n구입하시겠습니까?";
+		delegateAction = TryPurchase;
+		ScalingSetup (gameObject);
+	}
+	public void OnRecoverPopup(){
+		gameObject.SetActive (true);
+
+		m_goRseult.SetActive (false);
+		m_goPop.SetActive (true);
+		m_goPop.transform.FindChild("Text").GetComponent<Text>().text = "기존에 구매한 내용을 복구하시겠습니까?";
+		delegateAction = TryRecover;
 		ScalingSetup (gameObject);
 	}
 
@@ -25,13 +36,22 @@ public class AdsPopup : MonoBehaviour {
 		gameObject.SetActive (false);
 	}
 
+	public void OnPressOkay(){
+		delegateAction();
+	}
+
 
     // 결제 시도
-	public void TryPurchase()
+	void TryPurchase()
 	{
         // 결제가 완료되면 OnReslut( true ) 호출해주시면 되요
         // 실패시 OnResult( false ) 호출 해주세요.
 		GameObject.Find("IAP").GetComponent<InAppPurchase>().BuyConsumable(res=>{
+			OnResult(res);
+		});
+	}
+	void TryRecover(){
+		GameObject.Find("IAP").GetComponent<InAppPurchase>().RestorePurchases(res=>{
 			OnResult(res);
 		});
 	}
@@ -46,12 +66,16 @@ public class AdsPopup : MonoBehaviour {
 
 		ScalingSetup (m_goRseult);
 
-		string strPathName = "01. Home/Ads/Fail";
+//		string strPathName = "01. Home/Ads/Fail";
 		if (IsPay) {
-			strPathName = "01. Home/Ads/sucess";
-			StageMgr.Instance.SaveIsPayData ();
+//			strPathName = "01. Home/Ads/sucess";
+			m_goRseult.transform.FindChild("Text").GetComponent<Text>().text = "구매에 성공하였습니다";
+//			StageMgr.Instance.SaveIsPayData ();
+		}else{
+			m_goRseult.transform.FindChild("Text").GetComponent<Text>().text = "구매에 실패하였습니다";
 		}
-		m_pResultImg.sprite = Resources.Load (strPathName, typeof(Sprite)) as Sprite;
+
+//		m_pResultImg.sprite = Resources.Load (strPathName, typeof(Sprite)) as Sprite;
 		CheckPopupDeleted ();
 	}
 
@@ -59,6 +83,7 @@ public class AdsPopup : MonoBehaviour {
 	{
 		if (StageMgr.Instance.GetIsPay ()) {
 			m_goAdsButton.SetActive (false);
+			m_goRestoreButton.SetActive(false);
 			GameObject.Destroy ( m_goAdsButton);
 		}
 	}
@@ -77,4 +102,5 @@ public class AdsPopup : MonoBehaviour {
 	public GameObject m_goPop = null;
 	public Image m_pResultImg = null;
 	public GameObject m_goAdsButton = null;
+	public GameObject m_goRestoreButton = null;
 }

@@ -149,8 +149,9 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 
 	// Restore purchases previously made by this customer. Some platforms automatically restore purchases, like Google. 
 	// Apple currently requires explicit purchase restoration for IAP, conditionally displaying a password prompt.
-	public void RestorePurchases()
+	public void RestorePurchases(System.Action<bool> _onRes)
 	{
+		onRes = _onRes;
 		// If Purchasing has not yet been set up ...
 		if (!IsInitialized())
 		{
@@ -215,6 +216,7 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 		{
 			Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 //			ScoreManager.score += 100;
+			StageMgr.Instance.SaveIsPayData ();
 			if(onRes!=null)
 				onRes(true);
 		}
