@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum LANGUAGE_DATA
+{
+    KOREAN, ENGLISH
+};
+
 public class StageMgr : SingleTon<StageMgr> {
     private int m_nSellectChapter = 1;
     private int m_nOpenChapter = 1;
@@ -9,10 +14,15 @@ public class StageMgr : SingleTon<StageMgr> {
     private int m_nSellectPlanet = 1;
 	private bool m_IsPayAds = false;
 
+    private LANGUAGE_DATA m_nLanguageData = LANGUAGE_DATA.ENGLISH;
+
     private PLAYTYPE m_ptID = PLAYTYPE.COLOR;
 
     private bool m_IsGameSound = true;
     private bool m_IsSongSound = true;
+
+
+    public LANGUAGE_DATA GetLanguageData() { return m_nLanguageData; }
     public bool IsGameSound
     {
         get { return m_IsGameSound; }
