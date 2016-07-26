@@ -28,6 +28,11 @@ public class Explain : MonoBehaviour {
 
 
         InGameController.Instance.TimePause();
+
+        if( StageMgr.Instance.GetLanguageData() != LANGUAGE_DATA.KOREAN)
+        {
+            return;
+        }
         switch (StageMgr.Instance.SellectStage)
         {
             case 1:

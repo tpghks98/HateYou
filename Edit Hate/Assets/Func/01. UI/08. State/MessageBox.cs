@@ -19,7 +19,25 @@ public class MessageBox : MonoBehaviour {
     private float m_fWordTime = 0.0f;
     private string m_ViewString = "";
 
-    
+
+    private string GetMessageFilePath()
+    {
+        string strRValue = "Data/Message/";
+
+        switch( StageMgr.Instance.GetLanguageData())
+        {
+            case LANGUAGE_DATA.KOREAN:
+                strRValue += "Korean/";
+                break;
+            case LANGUAGE_DATA.ENGLISH:
+                strRValue += "English/";
+                break;
+        }
+        strRValue += "ST_" +  System.Convert.ToInt32(StageMgr.Instance.SellectStage);
+
+
+        return strRValue;
+    }
 
     public void TextLoad( STATEID ID)
     {
@@ -27,8 +45,11 @@ public class MessageBox : MonoBehaviour {
 
         m_nStateID = ID;
         m_lstString.Clear();
-        string strFileName = "Data/Message/ST_" + 
-            System.Convert.ToInt32( StageMgr.Instance.SellectStage );
+
+        string strFileName = GetMessageFilePath();
+
+        Debug.Log(strFileName);
+
 
         TextAsset data
             = Resources.Load(strFileName) as TextAsset;
