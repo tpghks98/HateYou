@@ -1,0 +1,2 @@
+M "..." "..." "Goodbye" END
+C "Thank you for listening to my story" " I mean if there was someone listening to me" " Well, you are there, aren¡¯t you? Okay, thank you" END

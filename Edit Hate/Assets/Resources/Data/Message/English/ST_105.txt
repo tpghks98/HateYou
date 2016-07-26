@@ -1,0 +1,2 @@
+M "(a whistling sound)" " (a whistling sound)" " (the whistling sound has stopped.)" END
+C "(a whistling sound)" "(a whistling sound)" "(The whistling sound doesn¡¯t stop.)" END

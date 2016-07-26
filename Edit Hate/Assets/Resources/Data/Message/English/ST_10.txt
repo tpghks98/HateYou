@@ -1,0 +1,2 @@
+M "No one wants to sleep" "..Maybe no one" END
+C "Timid guys just don't know what they should do" END

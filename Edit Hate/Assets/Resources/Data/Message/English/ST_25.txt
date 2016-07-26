@@ -1,0 +1,2 @@
+M "I don't do anything.." "..." "I just close the eyes of a dead perso" END
+C "I am not particularly busy...." "I just do kinds of zipping up the dress of a child who has never worn it.." END

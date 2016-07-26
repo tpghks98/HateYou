@@ -1,0 +1,3 @@
+M "To begin means to end someday" "..Sorry" END
+C "When did I start this work?" "Hmm... from someone since the old days?" END
+

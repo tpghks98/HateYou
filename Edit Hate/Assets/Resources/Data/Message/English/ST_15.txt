@@ -1,0 +1,2 @@
+M "Do you think what I'm doing is 'evil'?" "..." "Anyway that's right" END
+C "Do you think what I'm doing is 'good'" "..." "Anyway good" END
