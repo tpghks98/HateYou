@@ -19,7 +19,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_4;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;CROSS_PLATFORM_INPUT</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_4;UNITY_5_3;UNITY_5;UNITY_PURCHASING;UNITY_ANALYTICS;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_ANDROID;UNITY_ANDROID_API;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_EGL;ENABLE_NETWORK;ENABLE_RUNTIME_GI;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;PLATFORM_SUPPORTS_ADS_ID;ENABLE_UNITYADS_RUNTIME;UNITY_UNITYADS_API;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;CROSS_PLATFORM_INPUT;MOBILE_INPUT;ENABLE_DUCK_TYPING</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
@@ -38,13 +38,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Editor\Cache.cs" />
      <Compile Include="Assets\GoogleMobileAds\Editor\CocoaPodHelper.cs" />
      <Compile Include="Assets\GoogleMobileAds\Editor\PostProcessor.cs" />
      <Compile Include="Assets\PlayServicesResolver\Editor\AdMobDependencies.cs" />
@@ -54,72 +55,136 @@
      <Compile Include="Assets\PlayServicesResolver\Editor\ResolverVer1_1.cs" />
      <Compile Include="Assets\PlayServicesResolver\Editor\SampleDependencies.cs" />
      <Compile Include="Assets\PlayServicesResolver\Editor\SettingsDialog.cs" />
-     <None Include="Assets\Resources\Data\Message\ST_60.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_100.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_105.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_85.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_45.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_5.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_40.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_110.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_80.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_115.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_60.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_100.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_90.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_60.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_120.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_105.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_85.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_115.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_45.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_1.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_125.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_5.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_40.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_70.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_20.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_30.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_105.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_110.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_15.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_80.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_100.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_115.txt" />
      <None Include="Assets\Resources\Data\Story.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_30.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_10.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_50.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_25.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_1.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_55.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_30.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_25.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_10.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_50.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_45.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_80.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_25.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_1.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_10.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_40.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_55.txt" />
      <None Include="Assets\Plugins\Android\GoogleMobileAdsPlugin\AndroidManifest.xml" />
-     <None Include="Assets\Resources\Data\Message\ST_125.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_90.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_95.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_70.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_35.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_15.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_75.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_120.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_20.txt" />
-     <None Include="Assets\Resources\Data\Message\ST_65.txt" />
- <Reference Include="UnityEditor.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+     <None Include="Assets\Resources\Data\Message\Korean\ST_125.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_75.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_110.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_90.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_55.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_95.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_95.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_70.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_35.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_65.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_15.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_50.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_85.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_75.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_35.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_120.txt" />
+     <None Include="Assets\Resources\Data\Message\English\ST_5.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_20.txt" />
+     <None Include="Assets\Resources\Data\Message\Korean\ST_65.txt" />
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
- <Reference Include="nunit.framework">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.EditorTestsRunner">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEditor.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="nunit.framework">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/nunit.framework.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.EditorTestsRunner">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/EditorTestsRunner/Editor/UnityEditor.EditorTestsRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.TreeEditor">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
  </Reference>
  <Reference Include="JarResolverLib">
- <HintPath>C:/Users/김세환/Desktop/HateYou-master/Edit Hate/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/PlayServicesResolver/Editor/JarResolverLib.dll</HintPath>
  </Reference>
  <Reference Include="LitJson">
- <HintPath>C:/Users/김세환/Desktop/HateYou-master/Edit Hate/Assets/Plugins/LitJson.dll</HintPath>
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/LitJson.dll</HintPath>
+ </Reference>
+ <Reference Include="Common">
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/UnityPurchasing/Bin/Common.dll</HintPath>
+ </Reference>
+ <Reference Include="Editor">
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/UnityPurchasing/Bin/Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Security">
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/UnityPurchasing/Bin/Security.dll</HintPath>
+ </Reference>
+ <Reference Include="Stores">
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/UnityPurchasing/Bin/Stores.dll</HintPath>
+ </Reference>
+ <Reference Include="Apple">
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/UnityPurchasing/Bin/Apple/Apple.dll</HintPath>
+ </Reference>
+ <Reference Include="winrt">
+ <HintPath>/Users/a1/SchoolProjects/hateyou/Edit Hate/Assets/Plugins/UnityPurchasing/winrt/winrt.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.Graphs.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.WindowsStandalone.Extensions">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Xcode">
+ <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions.Common">
+ <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Common.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{E8BB47D7-1ECE-D178-5ACD-1B0EA564FD1C}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

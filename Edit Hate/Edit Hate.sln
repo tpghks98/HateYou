@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{D7822BAC-652D-B871-6212-ACD3B692FA1B}") = "Edit Hate", "Assembly-CSharp-firstpass.csproj", "{E8BB47D7-1ECE-D178-5ACD-1B0EA564FD1C}"
+EndProject
 Project("{D7822BAC-652D-B871-6212-ACD3B692FA1B}") = "Edit Hate", "Assembly-CSharp.csproj", "{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}"
 EndProject
 Project("{D7822BAC-652D-B871-6212-ACD3B692FA1B}") = "Edit Hate", "Assembly-CSharp-Editor.csproj", "{13824B2A-5B57-C23B-1050-74322A556F23}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E8BB47D7-1ECE-D178-5ACD-1B0EA564FD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8BB47D7-1ECE-D178-5ACD-1B0EA564FD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8BB47D7-1ECE-D178-5ACD-1B0EA564FD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8BB47D7-1ECE-D178-5ACD-1B0EA564FD1C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6DF15E3D-03E8-7C21-7356-9B6A57CB2EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU

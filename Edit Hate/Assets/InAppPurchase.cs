@@ -21,9 +21,11 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 	// specific mapping to Unity Purchasing's AddProduct, below.
 //	public static string kProductIDConsumable =    "consumable";
 	#if UNITY_IOS
-	public static string kProductIDConsumable =    "remove_ads_from_game";
+	public static string REMOVE_AD_ID =    "remove_ads_from_game";
+	public static string DONATE_ID =    "donate_us";
 	#else
-	public static string kProductIDConsumable =    "remove_ads";
+	public static string REMOVE_AD_ID =    "remove_ads";
+	public static string DONATE_ID =    "donate_us";
 	#endif
 
 
@@ -36,7 +38,10 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 
 	// Google Play Store-specific product identifier subscription product.
 	private static string kProductNameGooglePlaySubscription =  "com.unity3d.subscription.original"; 
-
+	void Awake(){
+		GameObject.DontDestroyOnLoad(this);
+		Debug.Log("IAPCreated!");
+	}
 	void Start()
 	{
 		// If we haven't set up the Unity Purchasing reference
@@ -61,7 +66,8 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 
 		// Add a product to sell / restore by way of its identifier, associating the general identifier
 		// with its store-specific identifiers.
-		builder.AddProduct(kProductIDConsumable, ProductType.NonConsumable);
+		builder.AddProduct(REMOVE_AD_ID, ProductType.NonConsumable);
+		builder.AddProduct(DONATE_ID, ProductType.Consumable);
 		// Continue adding the non-consumable product.
 //		builder.AddProduct(kProductIDNonConsumable, ProductType.NonConsumable);
 		// And finish adding the subscription product. Notice this uses store-specific IDs, illustrating
@@ -82,21 +88,31 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 		return m_StoreController != null && m_StoreExtensionProvider != null;
 	}
 
-	System.Action<bool> onRes;
-	public void BuyConsumable(System.Action<bool> _onRes)
+	System.Action<bool> onRes{
+		set{
+			__realOnRes = value;
+			Debug.Log("Setted!="+this.GetInstanceID()+" Pos="+gameObject.name);
+		}get{
+			return __realOnRes;
+		}
+	}
+	System.Action<bool> __realOnRes;
+	public void BuyConsumable(string id,System.Action<bool> _onRes)
+	{
+		
+		onRes = _onRes;
+//		onRes(true);
+//		return;
+		// Buy the consumable product using its general identifier. Expect a response either 
+		// through ProcessPurchase or OnPurchaseFailed asynchronously.
+		BuyProductID(id);
+	}
+	public void BuyNonConsumable(string id,System.Action<bool> _onRes)
 	{
 		onRes = _onRes;
 		// Buy the consumable product using its general identifier. Expect a response either 
 		// through ProcessPurchase or OnPurchaseFailed asynchronously.
-		BuyProductID(kProductIDConsumable);
-	}
-
-
-	public void BuyNonConsumable()
-	{
-		// Buy the non-consumable product using its general identifier. Expect a response either 
-		// through ProcessPurchase or OnPurchaseFailed asynchronously.
-//		BuyProductID(kProductIDNonConsumable);
+		BuyProductID(id);
 	}
 
 
@@ -212,11 +228,23 @@ public class InAppPurchase : MonoBehaviour,IStoreListener{
 	public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args) 
 	{
 		// A consumable product has been purchased by this user.
-		if (String.Equals(args.purchasedProduct.definition.id, kProductIDConsumable, StringComparison.Ordinal))
+		if (String.Equals(args.purchasedProduct.definition.id, REMOVE_AD_ID, StringComparison.Ordinal))
 		{
 			Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 //			ScoreManager.score += 100;
 			StageMgr.Instance.SaveIsPayData ();
+
+//			Debug.Log("Real Setted!="+this.GetInstanceID());
+			Debug.Log("Real Setted!="+this.GetInstanceID()+" Pos="+gameObject.name);
+			if(onRes!=null){
+				Debug.Log("Call return!");
+				onRes(true);
+			}else{
+				Debug.Log("not Call return!");
+			}
+		}else if (String.Equals(args.purchasedProduct.definition.id, DONATE_ID, StringComparison.Ordinal))
+		{
+			Debug.Log(string.Format("ProcessPurchase: PASS. Product: '{0}'", args.purchasedProduct.definition.id));// The consumable item has been successfully purchased, add 100 coins to the player's in-game score.
 			if(onRes!=null)
 				onRes(true);
 		}

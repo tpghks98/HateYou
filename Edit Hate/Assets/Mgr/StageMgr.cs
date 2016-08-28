@@ -15,6 +15,7 @@ public class StageMgr : SingleTon<StageMgr> {
 	private bool m_IsPayAds = false;
 
     private LANGUAGE_DATA m_nLanguageData = LANGUAGE_DATA.ENGLISH;
+//	private LANGUAGE_DATA m_nLanguageData = LANGUAGE_DATA.KOREAN;
 
     private PLAYTYPE m_ptID = PLAYTYPE.COLOR;
 
